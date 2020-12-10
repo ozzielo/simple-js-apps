@@ -1,6 +1,5 @@
-let myName = 'Bob';
-document.write(myName);
-myName = 'John Doe';
-document.write(myName);
-let chicken = 10;
-document.write(chicken)
+let pokemonList = [
+  { name: "bulbasaur", height: 0.7, type:["grass","poison"]},
+  { name: "butterfree", height: 1.1, type:["bug","flying"]},
+  { name: "beedrill", height: 1, type:["bug","poison"]}
+]
