@@ -37,7 +37,7 @@ let pokemonRepository = (function () {
 })();
 
 pokemonRepository.add({ name: "Venusaur" });
-pokemonRepository.getall();
+pokemonRepository.getAll();
 
 
 //This adds the pokemonList loop
