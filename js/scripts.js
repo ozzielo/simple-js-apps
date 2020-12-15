@@ -13,12 +13,26 @@ let pokemonRepository = (function () {
       type:["bug","poison"]}
   ];
 
-  function pokemonLoop(pokemon) {
-    if (pokemon.height > 1){
-      document.write( pokemon.name + " - " + "(height: " + pokemon.height + ") " + " - Wow That Is Huge!!" + "<br>" + "<br>" );
-    }else {document.write( pokemon.name + " - " + "(height: " + pokemon.height + ") " + "<br>" + "<br>" );}
+  // function pokemonLoop(pokemon) {
+  function addListItem(pokemon) {
+    let pokemonList = document.querySelector(".pokemon-list");
+    let listItem = document.createElement("li");
+    let button = document.createElement("button");
+    button.innerText = pokemon.name;
+    button.classList.add("button-class");
+    listItem.appendChild(button);
+    pokemonList.appendChild(listItem);
+    button.addEventListener("click", function(event){showDetails(pokemon.name);})
   }
-  pokemonList.forEach(pokemonLoop);
+
+  function showDetails(pokemon){
+    console.log(pokemon);
+  }
+    // if (pokemon.height > 1){
+    //   document.write( pokemon.name + " - " + "(height: " + pokemon.height + ") " + " - Wow That Is Huge!!" + "<br>" + "<br>" );
+    // }else {document.write( pokemon.name + " - " + "(height: " + pokemon.height + ") " + "<br>" + "<br>" );}
+
+  // pokemonList.forEach(pokemonLoop);
 
   function add(pokemon) {
     pokemonList.push(pokemon);
@@ -30,14 +44,18 @@ let pokemonRepository = (function () {
 
   return {
     add: add,
-    getAll: getAll
+    getAll: getAll,
+    addListItem: addListItem
   };
 
 
 })();
 
 pokemonRepository.add({ name: "Venusaur" });
-pokemonRepository.getAll();
+console.log(pokemonRepository.getAll());
+pokemonRepository.getAll().forEach(function (pokemon) {
+  pokemonRepository.addListItem(pokemon);
+});
 
 
 //This adds the pokemonList loop
